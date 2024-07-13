@@ -24,7 +24,7 @@ const sample = () => {
 export default sample;
 ```
 
-## CSSフレームワーク
+### CSSフレームワーク
 - BootStrap5のインストール
 ```
 yarn add bootstrap@next
@@ -35,7 +35,7 @@ yarn add bootstrap@next
 import 'bootstrap/dist/css/bootstrap.min.css'
 ```
 
-## document
+### document
 - _document.js
 ```js
 import { Html, Head, Main, NextScript } from 'next/document'
@@ -52,6 +52,30 @@ export default function Document() {
         </Html>
     )
 }
+```
+
+### image
+- 外部からの画像を参照する場合はドメインを指定
+- next.config.js
+```js
+const nextConfig = {
+  images:{
+    domains: ['i.gyazo.com'],
+  }
+}
+```
+
+- js
+```js
+import Image from "next/image";
+<Image src="Image_url.png" width="60" height="60" className="" alt="Logo"/>
+```
+
+- ローカルの画像を参照する場合
+- publicフォルダ配下にimgファイルを入れる
+```js
+import Image from "next/image";
+<Image src='/santa.jpg' alt='ローカルの写真' width={400} height={400} />
 ```
 
 ## sample01
