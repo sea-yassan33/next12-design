@@ -24,3 +24,30 @@
     background-color: #F6F7FA;
     height: 100vh; 
 }
+
+.pdTextSnone{
+    text-decoration: none;
+    color: #000;
+}
+
+.pdTopMai01{
+    /* タイトルの位置設定*/
+    padding-top: 10.5rem;
+    padding-bottom: 6rem;
+    text-align: center; 
+    color: #fff;
+    /* 画像の位置設定 */
+    background-image: url("../public/topImage01.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
+}
+
+.pdTopMainTitle{
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.5rem;
+    margin-bottom: 25px;
+    font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
