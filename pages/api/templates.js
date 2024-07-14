@@ -23,7 +23,7 @@ export default function handler(req, res) {
         },
     ];
 
-    const bootStrapClassDate = [
+    const bootStrapClassData = [
         {
             href: "https://qiita.com/Rock22/items/e4e89f15c29e1415977d",
             text: "text-align"
@@ -34,5 +34,5 @@ export default function handler(req, res) {
         }
     ];
 
-    res.status(200).json({tempData, bootStrapClassDate});
+    res.status(200).json({tempData, bootStrapClassData});
 }

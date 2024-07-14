@@ -2,16 +2,29 @@ import React,{useState} from 'react';
 import homeStyles from '../styles/Home.module.css'
 import Image from "next/image";
 import Link from 'next/link';
+import jsonData from './data.json'
 
 //テンプレートデータを用意
 export async function getStaticProps(){
   // 非同期でテンプレート情報を取得
-  const res = await fetch('http://localhost:3000/api/templates');
-  const {tempData, bootStrapClassDate} = await res.json();
+  // const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  // let tempData = [];
+  // let bootStrapClassData = [];
+  // try{
+  //   const res = await fetch(apiUrl);
+  //   const data = await res.json();
+  //   tempData = data.tempData || [];
+  //   bootStrapClassData = data.bootStrapClassData || [];
+  // }catch(error){
+  //   console.error('Failed to fetch data:', error)
+  // }
+
+  // jsonファイルからテンプレート情報を取得
+  const { tempData, bootStrapClassData } = jsonData;
   return{
     props: {
       tempData,
-      bootStrapClassDate
+      bootStrapClassData
     }
   };
 }
@@ -23,7 +36,7 @@ const styles ={
   btnpart02: "btn dropdown-toggle dropdown-toggle-split show",
 };
 
-export default function Home({tempData, bootStrapClassDate}) {
+export default function Home({tempData, bootStrapClassData}) {
   // ドロップダウンメニューの作成
   const [dropOpen, setDropOpen] = useState(false);
   const toggleDropdown = () => {
@@ -76,7 +89,7 @@ export default function Home({tempData, bootStrapClassDate}) {
                   <span className='visually-hidden'>ドロップダウンの切替</span>
                 </button>
                 <ul className={`dropdown-menu ${dropOpen ? 'show' : ''} ${homeStyles.pdBtnPullDown}`} data-popper-placement="bottom-start">
-                  {bootStrapClassDate.map((classItem, index) =>(
+                  {bootStrapClassData.map((classItem, index) =>(
                     <li key={index}>
                       <Link href={classItem.href} className='dropdown-item' target='_blank'>{classItem.text}</Link>
                     </li>
