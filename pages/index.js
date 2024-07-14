@@ -3,6 +3,18 @@ import homeStyles from '../styles/Home.module.css'
 import Image from "next/image";
 import Link from 'next/link';
 
+//テンプレートデータを用意
+export async function getStaticProps(){
+  // 非同期でテンプレート情報を取得
+  const res = await fetch('http://localhost:3000/api/templates');
+  const {tempData, bootStrapClassDate} = await res.json();
+  return{
+    props: {
+      tempData,
+      bootStrapClassDate
+    }
+  };
+}
 
 const styles ={
   navStyle : "navbar navbar-expand-lg navbar-dark pd-back-color", 
@@ -11,7 +23,7 @@ const styles ={
   btnpart02: "btn dropdown-toggle dropdown-toggle-split show",
 };
 
-export default function Home() {
+export default function Home({tempData, bootStrapClassDate}) {
   // ドロップダウンメニューの作成
   const [dropOpen, setDropOpen] = useState(false);
   const toggleDropdown = () => {
@@ -64,80 +76,34 @@ export default function Home() {
                   <span className='visually-hidden'>ドロップダウンの切替</span>
                 </button>
                 <ul className={`dropdown-menu ${dropOpen ? 'show' : ''} ${homeStyles.pdBtnPullDown}`} data-popper-placement="bottom-start">
-                  <li><Link href="https://qiita.com/Rock22/items/e4e89f15c29e1415977d" className='dropdown-item' target='_blank'>text-align</Link></li>
-                  <li><Link href="#" className='dropdown-item'>メニュー１</Link></li>
+                  {bootStrapClassDate.map((classItem, index) =>(
+                    <li key={index}>
+                      <Link href={classItem.href} className='dropdown-item' target='_blank'>{classItem.text}</Link>
+                    </li>
+                  ))}
                 </ul>
               </div>
               <hr/>
             </div>
-            
           </div>
           {/* 左側 */}
           <div className={`col-9 ${homeStyles.pdMainMenu}`}>
             <h1>デザイン・テンプレート集</h1>
-            <div className='card-group mb-3'>
-              <div className='card m-1'>
-                <Link href="/sample01/">
-                  <Image src="https://i.gyazo.com/ab3e7dbcbf047943d72849ee49f68b2e.png" width="150" height="150" className='card-img-top'/>
-                </Link>
-                <div className='card-body'>
-                  <Link href="/sample01/" className={`card-title h2`}>sample01</Link>
-                  <p className='card-text'>コーポレートサイトのトップ画面作成</p>
+            <div className='row mb-3'>
+              {tempData.map((temp,index)=>(
+                <div className='card m-1 col-sm-4' key={index}>
+                  <Link href={temp.href} target='_blank'>
+                    <Image src={temp.src} width="150" height="150" className='card-img-top' alt='img'/>
+                  </Link>
+                  <div className='card-body'>
+                    <Link href={temp.href} className={`${homeStyles.pdTextSnone} card-title h2`} target='_blank'>
+                      {temp.title}
+                    </Link>
+                    <p className='card-text'>{temp.description}</p>
+                  </div>
+                  <div className={`${styles.cardFoot}`}>Update {temp.update}</div>
                 </div>
-                <div className={`${styles.cardFoot}`}>Update 2024/07/13</div>
-              </div>
-              <div className='card m-1'>
-                <Link href="#">
-                  <Image src="/img/preparatImg.png" width="150" height="150" className='card-img-top'/>
-                </Link>
-                <div className='card-body'>
-                  <Link href="#" className={`${homeStyles.pdTextSnone} card-title h2`}>sample02</Link>
-                  <p className='card-text'>概要説明(準備中)</p>
-                </div>
-                <div className={`${styles.cardFoot}`}>Update 20**/**/**</div>
-              </div>
-              <div className='card m-1'>
-                <Link href="#">
-                  <Image src="/img/preparatImg.png" width="150" height="150" className='card-img-top'/>
-                </Link>
-                <div className='card-body'>
-                  <Link href="#" className={`${homeStyles.pdTextSnone} card-title h2`}>sample03</Link>
-                  <p className='card-text'>概要説明(準備中)</p>
-                </div>
-                <div className={`${styles.cardFoot}`}>Update 20**/**/**</div>
-              </div>
-            </div>
-            <div className='card-group mb-3'>
-              <div className='card m-1'>
-                <Link href="#">
-                  <Image src="/img/preparatImg.png" width="150" height="150" className='card-img-top'/>
-                </Link>
-                <div className='card-body'>
-                  <Link href="#" className={`${homeStyles.pdTextSnone} card-title h2`}>sample04</Link>
-                  <p className='card-text'>概要説明(準備中)</p>
-                </div>
-                <div className={`${styles.cardFoot}`}>Update 20**/**/**</div>
-              </div>
-              <div className='card m-1'>
-                <Link href="#">
-                  <Image src="/img/preparatImg.png" width="150" height="150" className='card-img-top'/>
-                </Link>
-                <div className='card-body'>
-                  <Link href="#" className={`${homeStyles.pdTextSnone} card-title h2`}>sample05</Link>
-                  <p className='card-text'>概要説明(準備中)</p>
-                </div>
-                <div className={`${styles.cardFoot}`}>Update 20**/**/**</div>
-              </div>
-              <div className='card m-1'>
-                <Link href="#">
-                  <Image src="/img/preparatImg.png" width="150" height="150" className='card-img-top'/>
-                </Link>
-                <div className='card-body'>
-                  <Link href="#" className={`${homeStyles.pdTextSnone} card-title h2`}>sample06</Link>
-                  <p className='card-text'>概要説明(準備中)</p>
-                </div>
-                <div className={`${styles.cardFoot}`}>Update 20**/**/**</div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
