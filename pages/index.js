@@ -105,11 +105,11 @@ export default function Home({tempData, bootStrapClassData}) {
             <div className='row mb-3'>
               {tempData.map((temp,index)=>(
                 <div className='card m-1 col-sm-4' key={index}>
-                  <Link href={temp.href} target='_blank'>
+                  <Link href={temp.href}>
                     <Image src={temp.src} width="150" height="150" className='card-img-top' alt='img'/>
                   </Link>
                   <div className='card-body'>
-                    <Link href={temp.href} className={`${homeStyles.pdTextSnone} card-title h2`} target='_blank'>
+                    <Link href={temp.href} className={`${homeStyles.pdTextSnone} card-title h2`}>
                       {temp.title}
                     </Link>
                     <p className='card-text'>{temp.description}</p>
