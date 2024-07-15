@@ -69,6 +69,11 @@ export default function Home({tempData, bootStrapClassData}) {
                 </Link>
               </div>
               <div className='ms-3 mb-2'>
+                <Link href="https://github.com/sea-yassan33/next12-design/blob/main/readme_docment/02_bootStrapReference.md" target='_blank'>
+                  <button className={`${styles.btnPart01} btn-warning`}>簡易リファレンスガイド</button>
+                </Link>
+              </div>
+              <div className='ms-3 mb-2'>
                 <Link href="https://bootstrap-guide.com/sample/cheatsheet" target='_blank'>
                   <button className={`${styles.btnPart01} btn-warning`}>チートシート</button>
                 </Link>

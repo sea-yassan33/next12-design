@@ -1,35 +1,52 @@
+/* 共通 */
 .pdBgcolor{
     background-color: #2C3E50;
 }
-
 .pdBgcolorBlue{
     background-color: #4D73DF;
 }
-
 .pdBgcolorGray{
     background-color: #F6F7FA;
 }
-
 .pdHigt100{
     height: 100vh;
 }
-
 .pdSideMenu{
     background-color: #4D73DF;
     height: 100vh;
     color: #e0e1e1;
 }
-
 .pdMainMenu{
     background-color: #F6F7FA;
     height: 100vh; 
 }
-
 .pdTextSnone{
     text-decoration: none;
     color: #000;
 }
+.pdTopMainTitle{
+    font-size: 1.5rem;
+    font-style: italic;
+    line-height: 1.5rem;
+    margin-bottom: 25px;
+    font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.pdFontComic{
+    font-style: italic;
+    font-family: "Comic Sans MS";
+}
+.pdFontRoboto{
+    font-style: italic;
+    font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
+}
+.pdBtnPullDown{
+    position: absolute;
+    inset: 0px auto auto 0px;
+    margin: 0px;
+    transform: translate(85px, 40px);
+}
 
+/* sample01 */
 .pdTopMai01{
     /* タイトルの位置設定*/
     padding-top: 10.5rem;
@@ -44,22 +61,16 @@
     background-size: cover;
 }
 
-.pdTopMainTitle{
-    font-size: 1.5rem;
-    font-style: italic;
-    line-height: 1.5rem;
-    margin-bottom: 25px;
-    font-family: "Roboto Slab", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-}
-
-.pdFontComic{
-    font-style: italic;
-    font-family: "Comic Sans MS";
-}
-
-.pdBtnPullDown{
-    position: absolute;
-    inset: 0px auto auto 0px;
-    margin: 0px;
-    transform: translate(85px, 40px);
+/* sample02 */
+.pdTopMai02{
+    /* タイトルの位置設定*/
+    padding-top: 10.0rem;
+    padding-bottom: 12.0rem;
+    text-align: right; 
+    /* 画像の位置設定 */
+    background-image: url("https://i.gyazo.com/586398a5764932f1d33275da5d9727a4.png");
+    background-repeat: no-repeat;
+    background-attachment: scroll;
+    background-position: center center;
+    background-size: cover;
 }
