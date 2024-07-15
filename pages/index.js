@@ -36,6 +36,38 @@ const styles ={
   btnpart02: "btn dropdown-toggle dropdown-toggle-split show",
 };
 
+const Permalink =()=>{
+  return(
+    <div>
+      <div className='ms-3 mb-2'>
+        <Link href="https://getbootstrap.jp/docs/5.3/examples/" target='_blank'>
+          <button className={`${styles.btnPart01} btn-warning`}>サンプル</button>
+        </Link>
+      </div>
+      <div className='ms-3 mb-2'>
+        <Link href="https://github.com/sea-yassan33/next12-design/blob/main/readme_docment/02_bootStrapReference.md" target='_blank'>
+          <button className={`${styles.btnPart01} btn-warning`}>簡易リファレンスガイド</button>
+        </Link>
+      </div>
+      <div className='ms-3 mb-2'>
+        <Link href="https://bootstrap-guide.com/sample/cheatsheet" target='_blank'>
+          <button className={`${styles.btnPart01} btn-warning`}>チートシート</button>
+        </Link>
+      </div>
+      <div className='ms-3 mb-2'>
+        <Link href="https://bootstrap-guide.com/example" target='_blank'>
+          <button className={`${styles.btnPart01} btn-warning`}>設置ガイド</button>
+        </Link>
+      </div>
+      <div className='ms-3 mb-2'>
+        <Link href="https://bootstraptaste.com/" target='_blank'>
+          <button className={`${styles.btnPart01} btn-warning`}>DS:bootstraptaste</button>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
 export default function Home({tempData, bootStrapClassData}) {
   // ドロップダウンメニューの作成
   const [dropOpen, setDropOpen] = useState(false);
@@ -63,31 +95,8 @@ export default function Home({tempData, bootStrapClassData}) {
             <hr/>
             <div className='mt-3'>
               <p className={`h3 ${homeStyles.pdFontComic}`}>Boot Strap</p>
-              <div className='ms-3 mb-2'>
-                <Link href="https://getbootstrap.jp/docs/5.3/examples/" target='_blank'>
-                  <button className={`${styles.btnPart01} btn-warning`}>サンプル</button>
-                </Link>
-              </div>
-              <div className='ms-3 mb-2'>
-                <Link href="https://github.com/sea-yassan33/next12-design/blob/main/readme_docment/02_bootStrapReference.md" target='_blank'>
-                  <button className={`${styles.btnPart01} btn-warning`}>簡易リファレンスガイド</button>
-                </Link>
-              </div>
-              <div className='ms-3 mb-2'>
-                <Link href="https://bootstrap-guide.com/sample/cheatsheet" target='_blank'>
-                  <button className={`${styles.btnPart01} btn-warning`}>チートシート</button>
-                </Link>
-              </div>
-              <div className='ms-3 mb-2'>
-                <Link href="https://bootstrap-guide.com/example" target='_blank'>
-                  <button className={`${styles.btnPart01} btn-warning`}>設置ガイド</button>
-                </Link>
-              </div>
-              <div className='ms-3 mb-2'>
-                <Link href="https://bootstraptaste.com/" target='_blank'>
-                  <button className={`${styles.btnPart01} btn-warning`}>DS:bootstraptaste</button>
-                </Link>
-              </div>
+              {/* 外部リンク */}
+              <Permalink/>
               <div className='btn-group mt-3'>
                 <button type='button' className='btn btn-secondary'>クラス名</button>
                 <button type='button' className={`${styles.btnpart02} btn-secondary`} onClick={toggleDropdown} aria-expanded={dropOpen}>
